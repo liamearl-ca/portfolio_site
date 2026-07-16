@@ -1,0 +1,11 @@
+.horizontal-scroll {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+
+.horizontal-scroll > * {
+  flex: 0 0 100%;      
+  scroll-snap-align: start;
+}

@@ -1,0 +1,39 @@
+.header {
+  background-color: var(--bg-secondary);
+  padding: 1rem 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+  color: #0d5d30;
+}
+
+.header-nav {
+  margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 2rem;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: 0.2s;
+}
+
+.header-nav a:hover {
+  scale: 1.1;
+}
