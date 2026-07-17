@@ -1,32 +1,55 @@
-# React + TypeScript + Vite
+# Liam Earl — Portfolio Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+My personal portfolio, built as a single continuously-scrolling page rather than separate routed
+pages. Home, About, and Projects sit side by side and you move between them by scrolling,
+clicking the arrow buttons on either side of the screen, or using the header nav — all three stay
+in sync with the URL.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Horizontal scroll-snap layout** — Home, About, and Projects are laid out side by side in one
+  scrollable strip instead of swapping out on route change
+- **Three ways to navigate, one source of truth** — the header links, the left/right arrow
+  buttons, and native scrolling/swiping all update the same URL, so `/about` and `/projects` stay
+  bookmarkable and browser back/forward works as expected
+- **Project grid** — each project gets an image, a short description, and a link to its repo
+- **Light/dark theme** — colors follow the OS-level `prefers-color-scheme` automatically
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) for dev server and bundling
+- [react-router-dom](https://reactrouter.com/) for URL/history sync
+- [oxlint](https://oxc.rs/) for linting
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Other scripts:
+
+```bash
+npm run build    # type-check (tsc -b) and build for production
+npm run preview  # preview the production build locally
+npm run lint      # run oxlint
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Layout.tsx           # header + scroll container + prev/next arrow buttons
+│   ├── HorizontalScroll.tsx # scroll-snap container, syncs scroll position <-> active index
+│   ├── Header.tsx           # site title + nav links
+│   └── Skills.tsx           # skill pills grouped by category, used on the About page
+├── pages/
+│   ├── Home.tsx
+│   ├── About.tsx
+│   └── Projects.tsx         # project grid: image, title/link, description
+├── assets/                  # images and project screenshots
+└── App.tsx                  # single wildcard route rendering Layout
+```
