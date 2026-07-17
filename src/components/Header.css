@@ -24,16 +24,17 @@
   display: flex;
   list-style: none;
   padding: 0;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .header-nav a {
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--text-main);
   transition: 0.2s;
 }
 
 .header-nav a:hover {
-  scale: 1.1;
+  scale: 1.05;
+  color: var(--primary-hover);
 }

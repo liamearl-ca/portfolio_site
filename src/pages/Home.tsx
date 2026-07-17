@@ -49,14 +49,15 @@ function Home() {
                 width: "100px",
                 height: "auto",
               }}/>
-            
+
           </div>
         </div>
-        <img src={LiamImg} alt="Image Of Liam Earl" style={{ 
+        
+        <img src={LiamImg} alt="Image Of Liam Earl" style={{
           border: "2px solid var(--border-color)",
-          borderRadius: "20%", 
+          borderRadius: "50px", 
           width: "600px", 
-          aspectRatio: "1 / 1",
+          aspectRatio: "4 / 3",
           marginTop: "25px"
         }}/>
       </div>

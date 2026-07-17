@@ -4,6 +4,7 @@ import JavaLogo from "../assets/tech_logos/Java.svg";
 import TypeScriptLogo from "../assets/tech_logos/TypeScript.svg";
 import CSharpLogo from "../assets/tech_logos/CSharp.svg";
 import PythonLogo from "../assets/tech_logos/Python.svg";
+import JavaScriptLogo from "../assets/tech_logos/JavaScript.svg";
 
 import ReactLogo from "../assets/tech_logos/React.svg";
 import SpringLogo from "../assets/tech_logos/Spring.svg";
@@ -31,9 +32,10 @@ const skillCategories: SkillCategory[] = [
     title: "Languages",
     skills: [
       {name: "Java", logo: JavaLogo}, 
-      {name: "TypeScript", logo: TypeScriptLogo},
+      {name: "Python", logo: PythonLogo},
+      {name: "JavaScript", logo: JavaScriptLogo},
+      {name: "TypeScript", logo: TypeScriptLogo}, 
       {name: "C#", logo: CSharpLogo}, 
-      {name: "Python", logo: PythonLogo}, 
     ]
   },
   {
@@ -60,7 +62,7 @@ const skillCategories: SkillCategory[] = [
 
 const sectionStyle: React.CSSProperties = {
   width: "100%",
-  padding: "40px 0",  
+  padding: "20px 0",  
   display:"flex",
   flexDirection:"column",
   alignItems:"center"
@@ -73,7 +75,7 @@ const headingStyle: React.CSSProperties = {
 };
 
 const categoryStyle: React.CSSProperties = {
-  backgroundColor: "var(--bg-surface)",
+  backgroundColor: "var(--bg-secondary)",
   border: "2px solid var(--border-color)",
   borderRadius: "12px",
   padding: "20px 24px",
@@ -138,7 +140,14 @@ function SkillPill({ skill }: { skill : SkillDetail }) {
         width: "100%",
         backgroundColor: hovered ? "var(--primary-hover)" : "var(--bg-main)",
         }}>
-      <img src={skill.logo} alt={`${skill.name} Logo`} style={{width: "30px", height: "auto", float:"left"}}/>
+      <img src={skill.logo} alt={`${skill.name} Logo`} style={{
+        width: "30px", 
+        height: "auto", 
+        float:"left",
+        padding:"3px",
+        borderRadius: "30%",
+        backgroundColor:"#000000"
+        }}/>
     
       <span
         style={{
@@ -163,7 +172,7 @@ function Skills() {
 
   return (
     <section style={sectionStyle}>
-      <h2 style={headingStyle}>Here Are My Skills:</h2>
+      <h2 style={headingStyle}>My Skills:</h2>
       <div style={gridStyle}>
         {skillCategories.map((category) => (
           <div key={category.title} style={categoryStyle}>
